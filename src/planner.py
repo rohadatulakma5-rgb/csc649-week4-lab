@@ -18,7 +18,7 @@ def is_urgent(due, today, limit=2):
     A task that is already overdue is not urgent. It is late.
     """
     left = days_left(due, today)
-    return 0 <= left < limit
+    return 0 <= left <= limit
 
 
 def sort_by_due(tasks):
@@ -37,3 +37,8 @@ def completion_rate(done, total):
     if total == 0:
         return 0.0
     return round(done / total * 100, 1)
+
+#days_left(due,today):return number of days remaining until due date
+#is_urgent(due,today,limit=2):return True if task is due within limit but has not yet passed its due date;otherwise return False
+#sort_by_due(tasks):return a new list of task sorted from the earliest due date to the latest
+#completion_rate(done,total):return the percentage of compelted tasks rounded to one decimal place, or 0.0 when there are no tasks
